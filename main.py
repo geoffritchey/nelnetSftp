@@ -6,7 +6,7 @@ import build
 if __name__ == '__main__':
     with pysftp.Connection(build.hostname, username=build.username, private_key_pass=build.private_key_pass) as sftp:
         os.chdir(build.drop)
-        sftp.chdir('production/commerce_manager')
+        sftp.chdir('production/sa-payment')
         print(sftp.listdir('.'))
         sftp.get_d(remotedir='.', localdir='.', preserve_mtime=True)
         for filename in os.listdir():
